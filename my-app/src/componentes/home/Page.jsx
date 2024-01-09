@@ -32,9 +32,9 @@ import './Page.css';
           </div>
 
           <div className="button-container">
-          <button className="btn btn-outline-secondary">Automotor</button>
-          <button className="btn btn-outline-secondary">Residencial</button>
-          <button className="btn btn-outline-secondary">Comercial</button>
+          <button className="btn btn-outline-secondary">Agregar producto</button>
+          <button className="btn btn-outline-secondary">Actualizar precios</button>
+          
         </div>
         </div>
         );

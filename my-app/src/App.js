@@ -1,3 +1,4 @@
+import CardsContainer from './backEnd/CardContainer';
 import './App.css';
 import Footer from './componentes/Footer';
 import Navbar from './componentes/Navbar';
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       
       <Navbar></Navbar>
+      <CardsContainer/>
       <Page></Page>
       <Footer></Footer>
     </div>
