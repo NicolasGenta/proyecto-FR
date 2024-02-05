@@ -61,12 +61,28 @@ function Page() {
       </div>
 
       {/* Mostrar los resultados de la búsqueda */}
+
+      <div className=' containerProduct'>
+        <div className = 'card'>
       <ul>
         {searchResults.map((producto) => (
-          <li key={producto.productId}>{producto.productname}</li>
+          <li key={producto.id_product}>
+           <p>producto: {producto.producto}</p>
+           <p>codigo de barra: {producto.codigo_de_barras}</p>
+           <p>precio: {producto.precio}</p>
+           <p>stock: {producto.stock}</p>
+           <p>{producto.url_imagen}</p>
+           <p>descripcion: {producto.descripcion}</p>
+          <p>marca: {producto.marca}</p>
+          <p>modelo: {producto.modelo}</p>
+          <p>sucursal: {producto.sucursal}</p>
+          <p>ciudad: {producto.ciudad}</p>
+          </li>
         ))}
       </ul>
-    </div>
+      </div>
+      </div>
+        </div>
   );
 }
 
