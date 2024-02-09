@@ -21,18 +21,33 @@ function Page() {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/product?query=${query}`);
-      const allProducts = await response.json();
+ 
+      const fetchData = async () => {
+        try {
+          // Codificar el valor de la consulta antes de agregarlo a la URL
+          const encodedQuery = encodeURIComponent(query);
+      
+          const response = await fetch(`http://localhost:3000/product?query=${encodedQuery}`);
+          const allProducts = await response.json();
+        
+          console.log('Respuesta de la API:', allProducts);
+      
+          const searchWords = query.toLowerCase().split(' ');
+      
+          // Filtra productos que comienzan con la cadena de búsqueda
+          const filteredProducts = allProducts.filter(producto => {
+            const productNameLower = producto.producto.toLowerCase();
+            return searchWords.some((word) => productNameLower.includes(word));
+          });
 
-      console.log('Respuesta de la API:', allProducts);
-
-      setSearchResults(allProducts);
-    } catch (error) {
-      console.log('Error al realizar la búsqueda:', error);
-    }
-  };
+          console.log('Productos filtrados:', filteredProducts);
+         
+          setSearchResults(filteredProducts);
+        } catch (error) {
+          console.log('Error al realizar la búsqueda:', error);
+          setSearchResults([]);
+        }
+      };
 
   return (
     <div className="container">
@@ -55,18 +70,14 @@ function Page() {
         </div>
       </div>
 
-      <div className="button-container">
-        <button className="btn btn-outline-secondary">Agregar producto</button>
-        <button className="btn btn-outline-secondary">Actualizar precios</button>
-      </div>
 
       {/* Mostrar los resultados de la búsqueda */}
 
-      <div className=' containerProduct'>
-        <div className = 'card'>
+     
+        <div className = 'card-deck'>
       <ul>
         {searchResults.map((producto) => (
-          <li key={producto.id_product}>
+          <li key={producto.id_product} className='card'>
            <p>producto: {producto.producto}</p>
            <p>codigo de barra: {producto.codigo_de_barras}</p>
            <p>precio: {producto.precio}</p>
@@ -81,8 +92,12 @@ function Page() {
         ))}
       </ul>
       </div>
+      <div className="button-container">
+        <button className="btn btn-outline-secondary">Agregar producto</button>
+        <button className="btn btn-outline-secondary">Actualizar precios</button>
       </div>
-        </div>
+      </div>
+       
   );
 }
 

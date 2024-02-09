@@ -1,21 +1,40 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 120px;
-    margin-top: 20px;
-    background-color: aliceblue;
-   
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
+/* Page.css */
 
-  .button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
-  }          
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 10vh;
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: aliceblue;
+}
+
+.input-group {
+  width: 100%; /* Hacer que la barra de búsqueda se extienda a lo ancho */
+  margin-bottom: 20px;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 0 0 calc(33.333% - 20px);
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-bottom: 20px;
+  width: 50%;
+}
