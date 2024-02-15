@@ -9,7 +9,7 @@
     left: 0;
     width: 100%;
     background-color: #87CEEB; /* Color celeste */
-   
+   z-index: 3;
   
   }
   .logo {

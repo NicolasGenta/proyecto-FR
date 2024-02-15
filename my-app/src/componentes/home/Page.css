@@ -1,5 +1,3 @@
-/* Page.css */
-
 .container {
   display: flex;
   flex-direction: column;
@@ -8,25 +6,28 @@
   margin-top: 20px;
   padding-top: 20px;
   background-color: aliceblue;
+ 
 }
 
 .input-group {
-  width: 100%; /* Hacer que la barra de búsqueda se extienda a lo ancho */
-  margin-bottom: 20px;
+  position: fixed;
+  width: 80%; /* Hacer que la barra de búsqueda se extienda a lo ancho */
+  margin-bottom: 50px;
+  z-index: 2;
 }
 
 .card-deck {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  overflow-x: auto;
 }
 
 .card {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 0 calc(30% - 20px);
   border: 1px solid #ccc;
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 40px;
   box-sizing: border-box;
 }
 
@@ -34,7 +35,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: auto;
+  margin-top: 30px;
   padding-bottom: 20px;
   width: 50%;
 }

@@ -8,5 +8,6 @@
     position: fixed; /* Fija el pie de página en la parte inferior de la ventana */
     width: 100%; /* Asegura que ocupe el 100% del ancho */
     bottom: 0; /* Coloca el pie de página en la parte inferior */
+    z-index: 3;
   }
   
