@@ -8,9 +8,6 @@
   width: 100%;
   z-index: 1000; /* Ajusta el valor del índice z según sea necesario */
 }
-.body{
-  padding-top: 60px;
-}
 .App-link {
   color: #61dafb;
 }

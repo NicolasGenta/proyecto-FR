@@ -1,0 +1,31 @@
+.custom-form {
+    position: absolute; /* Asegura que el formulario aparezca por encima de las tarjetas */
+    top: 50px; /* Ajusta la distancia desde la parte superior según sea necesario */
+    left: 50%; /* Centra el formulario horizontalmente */
+    transform: translateX(-50%); /* Centra el formulario horizontalmente */
+    background-color: #fff; /* Fondo blanco para el formulario */
+    padding: 20px; /* Añade espacio alrededor del formulario */
+    border: 1px solid #ccc; /* Añade un borde alrededor del formulario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añade una sombra al formulario */
+    z-index: 1; /* Asegura que el formulario aparezca encima de las tarjetas */
+    margin-top: 130px;
+  }
+  
+  .custom-form input,
+  .custom-form button {
+    margin-bottom: 10px; /* Añade espacio entre los elementos del formulario */
+    width: 100%; /* Ajusta el ancho de los campos de entrada y del botón */
+  }
+  
+  .custom-form button {
+    background-color: #007bff; /* Cambia el color de fondo del botón */
+    color: #fff; /* Cambia el color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    padding: 10px; /* Añade espacio alrededor del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  .custom-form button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el ratón por encima */
+  }
+  

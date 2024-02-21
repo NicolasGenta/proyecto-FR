@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import Form from './Form';
 import './Page.css';
 
 
@@ -6,6 +7,7 @@ import './Page.css';
 function Page() {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [showForm, setShowForm] = useState(false)
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -47,8 +49,12 @@ function Page() {
           console.log('Error al realizar la búsqueda:', error);
           setSearchResults([]);
         }
-      };
 
+        
+      };
+      const handleShowForm = () => {
+        setShowForm(!showForm);
+       }
   return (
     <div className="container">
       <div className="input-group">
@@ -67,6 +73,10 @@ function Page() {
           >
             Buscar
           </button>
+          
+          <button type='button' className='btn' onClick={handleShowForm}>
+            Crear Producto
+          </button>
         </div>
       </div>
 
@@ -74,8 +84,8 @@ function Page() {
       {/* Mostrar los resultados de la búsqueda */}
 
      
-        <div className = 'card-deck'>
       <ul>
+        <div className = 'card-deck'>
         {searchResults.map((producto) => (
           <li key={producto.id_product} className='card'>
            <p>producto: {producto.producto}</p>
@@ -90,13 +100,12 @@ function Page() {
           <p>ciudad: {producto.ciudad}</p>
           </li>
         ))}
+        </div>
       </ul>
+
+       {showForm && <Form/>}
       </div>
-      <div className="button-container">
-        <button className="btn btn-outline-secondary">Agregar producto</button>
-        <button className="btn btn-outline-secondary">Actualizar precios</button>
-      </div>
-      </div>
+     
        
   );
 }

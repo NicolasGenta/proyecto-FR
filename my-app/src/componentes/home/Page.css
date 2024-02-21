@@ -5,7 +5,7 @@
   min-height: 10vh;
   margin-top: 20px;
   padding-top: 20px;
-  background-color: aliceblue;
+  background-color:transparent ;
  
 }
 
@@ -18,14 +18,15 @@
 
 .card-deck {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  margin-top: 20px;
   justify-content: space-around;
   overflow-x: auto;
 }
 
 .card {
   flex: 0 0 calc(30% - 20px);
-  border: 1px solid #ccc;
+  border: 1px solid #1b1414;
   padding: 10px;
   margin: 40px;
   box-sizing: border-box;
