@@ -11,25 +11,69 @@
 
 .input-group {
   position: fixed;
-  width: 80%; /* Hacer que la barra de búsqueda se extienda a lo ancho */
-  margin-bottom: 50px;
+  width: 60%; /* Hacer que la barra de búsqueda se extienda a lo ancho */
+ 
+  margin-bottom: 50%;
   z-index: 2;
+
+}
+@media screen and (max-width: 768px) {
+  .input-group {
+    width: 60%;
+    margin-bottom: 20px;
+  
+  }
+}
+
+
+  
+
+
+/* Estilo del botón */
+.btn.btn-outline-secondary {
+  position: fixed;  
+  border: 1px solid #6c757d; /* Ajusta el color del borde según tus preferencias */
+  margin-left: 1%; /* Ajusta la cantidad de espacio a la izquierda del botón */
+  z-index: 2;
+  padding: 6px 12px;
+}
+
+/* Ajustes adicionales para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .btn.btn-outline-secondary {
+    margin-left: 1%; /* Ajusta el espacio a la izquierda para pantallas más pequeñas si es necesario */
+    width: auto; /* Hacer que el botón ocupe el ancho completo en pantallas más pequeñas */
+  
+  }
 }
 
 .card-deck {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
-  justify-content: space-around;
+  margin-top: 40px;
+  justify-content: space-between;
   overflow-x: auto;
 }
 
 .card {
   flex: 0 0 calc(30% - 20px);
+  min-width: 200px;
   border: 1px solid #1b1414;
   padding: 10px;
-  margin: 40px;
+  margin: 1%;
   box-sizing: border-box;
+  margin-bottom: 60px;
+}
+@media screen and (max-width: 1200px) {
+  .card{
+    flex: 0 0 calc(100% - 20px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% - 20px);
+  }
 }
 
 .button-container {
@@ -38,5 +82,29 @@
   justify-content: space-between;
   margin-top: 30px;
   padding-bottom: 20px;
-  width: 50%;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.btn-container {
+  position: fixed;
+  bottom: 80px;
+  right: 10px;
+  z-index: 2;
+  border:1px solid #1b1414;
+  padding: 1px 3px; /* Ajusta según tus necesidades */
+  background-color: #fff; /* Ajusta el color de fondo según tus necesidades */
+  border-radius: 1px; /* Ajusta según tus necesidades */
+}
+@media screen and (max-width: 768px) {
+  .btn-container {
+    bottom: 80px;
+    right: 10px;
+    padding: 1px 2px;
+    border-radius: 1px;
+  }
 }

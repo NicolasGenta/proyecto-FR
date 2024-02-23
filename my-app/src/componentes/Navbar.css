@@ -1,5 +1,7 @@
 .container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     background-color: #87CEEB; /* Color celeste */
   }
   
@@ -13,7 +15,16 @@
   
   }
   .logo {
-    width: 100px;
+    width: 80px;
     display: block;
     margin: auto;
+  }
+  @media screen and (max-width: 768px) {
+    .navbar {
+      /* Puedes agregar estilos específicos para pantallas más pequeñas aquí */
+    }
+  
+    .logo {
+      width: 80px; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+    }
   }

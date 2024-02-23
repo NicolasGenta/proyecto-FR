@@ -73,12 +73,13 @@ function Page() {
           >
             Buscar
           </button>
-          
+      </div>
+         <div className="btn-container">
           <button type='button' className='btn' onClick={handleShowForm}>
             Crear Producto
           </button>
+          </div>
         </div>
-      </div>
 
 
       {/* Mostrar los resultados de la búsqueda */}
