@@ -3,6 +3,7 @@ import './App.css';
 import Footer from './componentes/Footer';
 import Navbar from './componentes/Navbar';
 import Page from './componentes/home/Page';
+import ProductosFiltrados from './componentes/home/ProductosFiltrados';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       
       <Navbar></Navbar>
       <Page></Page>
+      <ProductosFiltrados/>
       <Footer></Footer>
     </div>
   );
