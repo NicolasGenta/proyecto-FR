@@ -99,6 +99,7 @@ function Page() {
           <p>modelo: {producto.modelo}</p>
           <p>sucursal: {producto.sucursal}</p>
           <p>ciudad: {producto.ciudad}</p>
+          <p>categoria: {producto.categoria}</p>
           </li>
         ))}
         </div>

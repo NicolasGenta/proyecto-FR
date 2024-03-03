@@ -13,7 +13,8 @@ const Form = () => {
     marca: '',
     modelo: '',
     sucursal: '',
-    ciudad: ''
+    ciudad: '',
+    categoria: ''
   });
 
     const handleChange = (e) => {
@@ -43,7 +44,8 @@ const Form = () => {
           marca: '',
           modelo: '',
           sucursal: '',
-          ciudad: ''
+          ciudad: '',
+          categoria: ''
         })
         const data = await response.json();
         console.log('Respuesta del servidor:', data);
@@ -64,6 +66,7 @@ const Form = () => {
        <input type='text' placeholder='modelo' name='modelo' value={formData.modelo} onChange={handleChange}/>
        <input type='text' placeholder='sucursal' name='sucursal' value={formData.sucursal} onChange={handleChange}/>
        <input type='text' placeholder='ciudad' name='ciudad' value={formData.ciudad} onChange={handleChange}/>
+       <input type='text' placeholder='categoria' name='categoria' value={formData.categoria} onChange={handleChange}/>
        <button type='submit'>Enviar</button>
    </form>
   )

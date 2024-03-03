@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './Page.css';
+import './ProductosFiltrados.css';
 const ProductosFiltrados = () => {
     const [products, setProducts] = useState([]);
     const [selectedType, setSelectedType] = useState('');
@@ -30,7 +31,7 @@ const ProductosFiltrados = () => {
      }
 
      const handleModelChange = (e) => {
-        selectedModel(e.target.value)
+        setSelectedModel(e.target.value)
     }
     
     useEffect(() => {
@@ -50,6 +51,7 @@ const ProductosFiltrados = () => {
     }, [selectedType, selectedBrand, selectedModel, products])
   return (
     <div>
+      <div className='conts'>
          <select value={selectedType} onChange={handleTypeChange}>
         <option value="">Seleccione un tipo de producto</option>
         {products.map(product => ( 
@@ -69,7 +71,7 @@ const ProductosFiltrados = () => {
           <option key={model.id} value={model.modelo}>{model.modelo}</option>
         ))}
       </select>
-         <ul>
+      </div>
          <div className = 'card-deck'>
             {filteredProducts.map(producto => (
                 <li key={producto.id_product} className='card'>
@@ -83,10 +85,11 @@ const ProductosFiltrados = () => {
                <p>modelo: {producto.modelo}</p>
                <p>sucursal: {producto.sucursal}</p>
                <p>ciudad: {producto.ciudad}</p>
+               <p>categoria :{producto.categoria}</p>
                </li>
             ))}
             </div>
-         </ul>
+         
 
          
     </div>
