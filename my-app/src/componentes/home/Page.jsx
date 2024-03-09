@@ -7,7 +7,8 @@ import './Page.css';
 function Page() {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [showForm, setShowForm] = useState(false)
+  const [showForm, setShowForm] = useState(false);
+  const [porcentaje, setPorcentaje] = useState(0);
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -54,7 +55,12 @@ function Page() {
       };
       const handleShowForm = () => {
         setShowForm(!showForm);
-       }
+       };
+
+       const handlePorcentajeChange = (e) => {
+        setPorcentaje(parseFloat(e.target.value));
+      };
+
   return (
     <div className="container">
       <div className="input-group">
@@ -81,29 +87,44 @@ function Page() {
           </div>
         </div>
 
-
       {/* Mostrar los resultados de la búsqueda */}
 
      
-      <ul>
+      
         <div className = 'card-deck'>
         {searchResults.map((producto) => (
           <li key={producto.id_product} className='card'>
+           <p>categoria: {producto.categoria}</p>
            <p>producto: {producto.producto}</p>
-           <p>codigo de barra: {producto.codigo_de_barras}</p>
-           <p>precio: {producto.precio}</p>
-           <p>stock: {producto.stock}</p>
-           <p>{producto.url_imagen}</p>
+           <p>marca: {producto.marca}</p>
+           <p>modelo: {producto.modelo}</p>
            <p>descripcion: {producto.descripcion}</p>
-          <p>marca: {producto.marca}</p>
-          <p>modelo: {producto.modelo}</p>
-          <p>sucursal: {producto.sucursal}</p>
-          <p>ciudad: {producto.ciudad}</p>
-          <p>categoria: {producto.categoria}</p>
+           <p>stock: {producto.stock}</p>
+           <p>sucursal: {producto.sucursal}</p>
+           <p>precio: {producto.precio}</p>
+        <div>
+        <label htmlFor="porcentaje">Porcentaje de aumento:</label>
+        <input
+          type="range"
+          id="porcentaje"
+          name="porcentaje"
+          min="0"
+          max="100"
+          step="1"
+          value={porcentaje}
+          onChange={handlePorcentajeChange}
+        />
+        <span>{porcentaje}%</span>
+      </div>
+           
+           <p>
+                Precio Final: ${(parseFloat(producto.precio) * (1 + porcentaje / 100)).toFixed(2)}
+             
+              </p>
           </li>
         ))}
         </div>
-      </ul>
+      
 
        {showForm && <Form/>}
       </div>

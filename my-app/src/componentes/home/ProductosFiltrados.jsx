@@ -2,12 +2,14 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import './Page.css';
 import './ProductosFiltrados.css';
+
 const ProductosFiltrados = () => {
     const [products, setProducts] = useState([]);
     const [selectedType, setSelectedType] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedModel, setSelectedModel] = useState('');
-    const [filteredProducts, setFilteredProducs] = useState([])
+    const [filteredProducts, setFilteredProducs] = useState([]);
+    const [porcentaje, setPorcentaje] = useState(0);
     
      useEffect(() => {
        fetch('http://localhost:3000/product')
@@ -34,8 +36,13 @@ const ProductosFiltrados = () => {
         setSelectedModel(e.target.value)
     }
     
+    const handlePorcentajeChange = (e) => {
+      setPorcentaje(parseFloat(e.target.value));
+    };
     useEffect(() => {
+      if (selectedType !== '' || selectedBrand !== '' || selectedModel !== '') {
         let filtered = products;
+       
         if (selectedType !== '') {
             filtered = filtered.filter(products => products.producto === selectedType)
         }
@@ -48,7 +55,9 @@ const ProductosFiltrados = () => {
             filtered = filtered.filter(products => products.modelo === selectedModel)
         }
         setFilteredProducs(filtered)
+      }
     }, [selectedType, selectedBrand, selectedModel, products])
+
   return (
     <div>
       <div className='conts'>
@@ -75,17 +84,33 @@ const ProductosFiltrados = () => {
          <div className = 'card-deck'>
             {filteredProducts.map(producto => (
                 <li key={producto.id_product} className='card'>
+                <p>categoria :{producto.categoria}</p>
                 <p>producto: {producto.producto}</p>
-                <p>codigo de barra: {producto.codigo_de_barras}</p>
-                <p>precio: {producto.precio}</p>
-                <p>stock: {producto.stock}</p>
-                <p>{producto.url_imagen}</p>
+                <p>marca: {producto.marca}</p>
+                <p>modelo: {producto.modelo}</p>
                 <p>descripcion: {producto.descripcion}</p>
-               <p>marca: {producto.marca}</p>
-               <p>modelo: {producto.modelo}</p>
-               <p>sucursal: {producto.sucursal}</p>
-               <p>ciudad: {producto.ciudad}</p>
-               <p>categoria :{producto.categoria}</p>
+                <p>stock: {producto.stock}</p>
+                <p>sucursal: {producto.sucursal}</p>
+                <p>precio: {producto.precio}</p>
+                <div>
+        <label htmlFor="porcentaje">Porcentaje de aumento:</label>
+        <input
+          type="range"
+          id="porcentaje"
+          name="porcentaje"
+          min="0"
+          max="100"
+          step="1"
+          value={porcentaje}
+          onChange={handlePorcentajeChange}
+        />
+        <span>{porcentaje}%</span>
+      </div>
+           
+           <p>
+                Precio Final: ${(parseFloat(producto.precio) * (1 + porcentaje / 100)).toFixed(2)}
+             
+              </p>
                </li>
             ))}
             </div>
