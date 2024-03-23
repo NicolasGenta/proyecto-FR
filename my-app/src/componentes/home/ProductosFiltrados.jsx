@@ -1,16 +1,20 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import './Page.css';
 import './ProductosFiltrados.css';
 
-const ProductosFiltrados = () => {
+
+
+ const ProductosFiltrados = ({}) => {
     const [products, setProducts] = useState([]);
     const [selectedType, setSelectedType] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedModel, setSelectedModel] = useState('');
     const [filteredProducts, setFilteredProducs] = useState([]);
     const [porcentaje, setPorcentaje] = useState(0);
-    
+
+
+
      useEffect(() => {
        fetch('http://localhost:3000/product')
        .then(response => response.json())
@@ -39,6 +43,8 @@ const ProductosFiltrados = () => {
     const handlePorcentajeChange = (e) => {
       setPorcentaje(parseFloat(e.target.value));
     };
+
+   
     useEffect(() => {
       if (selectedType !== '' || selectedBrand !== '' || selectedModel !== '') {
         let filtered = products;
@@ -56,10 +62,14 @@ const ProductosFiltrados = () => {
         }
         setFilteredProducs(filtered)
       }
-    }, [selectedType, selectedBrand, selectedModel, products])
+    }, [selectedType, selectedBrand, selectedModel, products])  
+    
+  
+ 
 
   return (
     <div>
+      
       <div className='conts'>
          <select value={selectedType} onChange={handleTypeChange}>
         <option value="">Seleccione un tipo de producto</option>
@@ -81,9 +91,9 @@ const ProductosFiltrados = () => {
         ))}
       </select>
       </div>
-         <div className = 'card-deck'>
+         <div className = 'card-deck' >
             {filteredProducts.map(producto => (
-                <li key={producto.id_product} className='card'>
+               <div key={producto.id_product} className='card'>
                 <p>categoria :{producto.categoria}</p>
                 <p>producto: {producto.producto}</p>
                 <p>marca: {producto.marca}</p>
@@ -111,13 +121,13 @@ const ProductosFiltrados = () => {
                 Precio Final: ${(parseFloat(producto.precio) * (1 + porcentaje / 100)).toFixed(2)}
              
               </p>
-               </li>
-            ))}
             </div>
-         
-
-         
-    </div>
+              
+              ))}
+          </div>
+         </div>
+     
+   
   )
 }
 

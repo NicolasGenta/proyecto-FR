@@ -108,3 +108,57 @@
     border-radius: 1px;
   }
 }
+.carrito-btn {
+  position: fixed;
+  bottom: 820px;
+  right: 20px;
+  z-index: 4; /* Ajusta según sea necesario para que el botón esté sobre otros elementos */
+  background-color: #fff; /* Ajusta el color de fondo según tus necesidades */
+  border: 1px solid #1b1414; /* Ajusta el estilo del borde según tus necesidades */
+  border-radius: 50%; /* Hacer que el botón sea circular */
+  padding: 10px; /* Ajusta el espacio dentro del botón según tus necesidades */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .carrito-btn {
+    bottom: 580px; /* Ajusta según sea necesario para pantallas más pequeñas */
+    right: 20px;
+    font-size: 16px; /* Ajusta el tamaño del ícono para pantallas más pequeñas */
+  }
+}
+
+/* Estilos para pantallas aún más pequeñas */
+@media screen and (max-width: 576px) {
+  .carrito-btn {
+    bottom: 580px; /* Ajusta según sea necesario para pantallas aún más pequeñas */
+    right: 10px;
+    font-size: 14px; /* Ajusta el tamaño del ícono para pantallas aún más pequeñas */
+  }
+}
+
+
+.carrito-btn i {
+  font-size: 20px; /* Ajusta el tamaño del ícono según tus necesidades */
+  color: #1b1414; /* Ajusta el color del ícono según tus necesidades */
+}
+
+.carrito-btn .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #007bff; /* Ajusta el color de fondo del contador según tus necesidades */
+}
+.carrito-content {
+  position: fixed;
+  top: 30%; /* Ajusta la distancia desde la parte superior de la ventana */
+  right: 100px; /* Ajusta la distancia desde el borde derecho de la ventana */
+  z-index: 2; /* Ajusta según sea necesario para que esté sobre otros elementos */
+  background-color: #fff; /* Ajusta el color de fondo según tus necesidades */
+  border: 1px solid #ccc; /* Ajusta el estilo del borde según tus necesidades */
+  border-radius: 4px; /* Ajusta el radio del borde según tus necesidades */
+  padding: 10px; /* Ajusta el espacio interior según tus necesidades */
+}

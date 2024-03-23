@@ -1,0 +1,14 @@
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    .carrito, .carrito * {
+      visibility: visible;
+    }
+    .carrito {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  
